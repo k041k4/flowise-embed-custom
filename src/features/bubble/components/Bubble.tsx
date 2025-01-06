@@ -44,7 +44,7 @@ export const Bubble = (props: BubbleProps) => {
   const tooltipMessageInUrl = searchParams.get(tooltipKey);
   const tooltipMessage = tooltipMessageInUrl || bubbleProps.theme?.tooltip?.tooltipMessage;
 
-  // Read custom welcom message from URL params
+  // Read custom welcome message from URL params
   const welcomeMessageKey = 'f27_welcome_message';
   const welcomeMessage = searchParams.get(welcomeMessageKey) || bubbleProps.theme?.chatWindow?.welcomeMessage;
 
@@ -64,7 +64,7 @@ export const Bubble = (props: BubbleProps) => {
     };
   });
 
-  const showTooltip = bubbleProps.theme?.tooltip?.showTooltip ?? false;
+  const showTooltip = bubbleProps.theme?.tooltip?.showTooltip ? true : tooltipMessageInUrl ? true : false;
 
   return (
     <>
@@ -73,7 +73,7 @@ export const Bubble = (props: BubbleProps) => {
       </Show>
       <style>{styles}</style>
       <Tooltip
-        showTooltip={(showTooltip || !!tooltipMessageInUrl) && !isBotOpened()}
+        showTooltip={showTooltip && !isBotOpened()}
         position={buttonPosition()}
         buttonSize={buttonSize}
         tooltipMessage={tooltipMessage}
