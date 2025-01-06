@@ -1,0 +1,14 @@
+name: Purge jsDelivr CDN Cache
+
+on:
+  push:
+    paths:
+      - dist/web.js
+
+jobs:
+  purge-jsdelivr-cdn-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/manojnaidu619/flowise-embed-custom/dist/web.js
