@@ -40,7 +40,7 @@ export const Bubble = (props: BubbleProps) => {
 
   // Read tooltip value from URL params
   const searchParams = new URLSearchParams(window.location.search);
-  const tooltipKey = 'f27_tooltip_test';
+  const tooltipKey = 'f27_tooltip';
   const tooltipMessageInUrl = searchParams.get(tooltipKey);
   const tooltipMessage = tooltipMessageInUrl || bubbleProps.theme?.tooltip?.tooltipMessage;
 

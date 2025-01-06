@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: gacts/purge-jsdelivr-cache@v1
         with:
-          url: https://cdn.jsdelivr.net/gh/manojnaidu619/flowise-embed-custom/dist/web.js
+          url: https://cdn.jsdelivr.net/gh/manojnaidu619/flowise-embed-custom@main/dist/web.js
