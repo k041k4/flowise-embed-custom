@@ -37,6 +37,11 @@ Build:
 yarn build
 ```
 
+## Custom URL parameters
+
+- `f27_tooltip` : For custom tooltip message
+- `f27_welcome_message` : For custom welcome message
+
 ## Embed in your HTML
 
 ### PopUp

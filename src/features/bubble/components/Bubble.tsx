@@ -38,6 +38,16 @@ export const Bubble = (props: BubbleProps) => {
     setIsBotStarted(false);
   });
 
+  // Read tooltip value from URL params
+  const searchParams = new URLSearchParams(window.location.search);
+  const tooltipKey = 'f27_tooltip';
+  const tooltipMessageInUrl = searchParams.get(tooltipKey);
+  const tooltipMessage = tooltipMessageInUrl || bubbleProps.theme?.tooltip?.tooltipMessage;
+
+  // Read custom welcom message from URL params
+  const welcomeMessageKey = 'f27_welcome_message';
+  const welcomeMessage = searchParams.get(welcomeMessageKey) || bubbleProps.theme?.chatWindow?.welcomeMessage;
+
   const buttonSize = getBubbleButtonSize(props.theme?.button?.size); // Default to 48px if size is not provided
   const buttonBottom = props.theme?.button?.bottom ?? 20;
   const chatWindowBottom = buttonBottom + buttonSize + 10; // Adjust the offset here for slight shift
@@ -63,10 +73,10 @@ export const Bubble = (props: BubbleProps) => {
       </Show>
       <style>{styles}</style>
       <Tooltip
-        showTooltip={showTooltip && !isBotOpened()}
+        showTooltip={(showTooltip || !!tooltipMessageInUrl) && !isBotOpened()}
         position={buttonPosition()}
         buttonSize={buttonSize}
-        tooltipMessage={bubbleProps.theme?.tooltip?.tooltipMessage}
+        tooltipMessage={tooltipMessage}
         tooltipBackgroundColor={bubbleProps.theme?.tooltip?.tooltipBackgroundColor}
         tooltipTextColor={bubbleProps.theme?.tooltip?.tooltipTextColor}
         tooltipFontSize={bubbleProps.theme?.tooltip?.tooltipFontSize} // Set the tooltip font size
@@ -130,7 +140,7 @@ export const Bubble = (props: BubbleProps) => {
               showAgentMessages={bubbleProps.theme?.chatWindow?.showAgentMessages}
               title={bubbleProps.theme?.chatWindow?.title}
               titleAvatarSrc={bubbleProps.theme?.chatWindow?.titleAvatarSrc}
-              welcomeMessage={bubbleProps.theme?.chatWindow?.welcomeMessage}
+              welcomeMessage={welcomeMessage}
               errorMessage={bubbleProps.theme?.chatWindow?.errorMessage}
               poweredByTextColor={bubbleProps.theme?.chatWindow?.poweredByTextColor}
               textInput={bubbleProps.theme?.chatWindow?.textInput}
