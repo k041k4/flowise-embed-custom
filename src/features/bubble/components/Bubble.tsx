@@ -45,8 +45,8 @@ export const Bubble = (props: BubbleProps) => {
   const tooltipMessage = tooltipMessageInUrl || bubbleProps.theme?.tooltip?.tooltipMessage;
 
   // Read custom welcome message from URL params
-  const welcomeMessageKey = 'f27_welcome_message';
-  const welcomeMessage = searchParams.get(welcomeMessageKey) || bubbleProps.theme?.chatWindow?.welcomeMessage;
+  const welcomeMessageKeyInUrl = 'f27_welcome_message';
+  const welcomeMessage = searchParams.get(welcomeMessageKeyInUrl) || bubbleProps.theme?.chatWindow?.welcomeMessage;
 
   const buttonSize = getBubbleButtonSize(props.theme?.button?.size); // Default to 48px if size is not provided
   const buttonBottom = props.theme?.button?.bottom ?? 20;
@@ -64,7 +64,7 @@ export const Bubble = (props: BubbleProps) => {
     };
   });
 
-  const showTooltip = bubbleProps.theme?.tooltip?.showTooltip ? true : tooltipMessageInUrl ? true : false;
+  const showTooltip = bubbleProps.theme?.tooltip?.showTooltip || !!tooltipMessageInUrl || false;
 
   return (
     <>
