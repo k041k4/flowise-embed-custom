@@ -1,10 +1,10 @@
-import { createSignal, Show, splitProps, onCleanup, createEffect } from 'solid-js';
-import styles from '../../../assets/index.css';
-import { BubbleButton } from './BubbleButton';
-import { BubbleParams } from '../types';
-import { Bot, BotProps } from '../../../components/Bot';
-import Tooltip from './Tooltip';
 import { getBubbleButtonSize } from '@/utils';
+import { createEffect, createSignal, onCleanup, Show, splitProps } from 'solid-js';
+import styles from '../../../assets/index.css';
+import { Bot, BotProps } from '../../../components/Bot';
+import { BubbleParams } from '../types';
+import { BubbleButton } from './BubbleButton';
+import Tooltip from './Tooltip';
 
 const defaultButtonColor = '#3B81F6';
 const defaultIconColor = 'white';
