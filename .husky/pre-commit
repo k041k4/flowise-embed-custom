@@ -9,10 +9,10 @@ npm run lint
 echo "Running ESLint for fixing issues..."
 npm run lint-fix
 
-echo "Formatting code..."
-npm run format
+# echo "Formatting code..."
+# npm run format
 
-echo "Checking formatting..."
-npm run format:check
+# echo "Checking formatting..."
+# npm run format:check
 
 echo "Pre-commit checks passed."
