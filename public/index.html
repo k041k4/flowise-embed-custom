@@ -1,7 +1,7 @@
 <!--
   NOTE: This .html file (and public folder) is optional and can be safely deleted.
   It serves only as a demo/test page.
-  
+
   The chatbot can be embedded directly on any allowed domain using the embed script that
   is generated when starting the server.
 -->
@@ -27,8 +27,13 @@
       //
       // Then use the environment variable name as chatflowid:
       Chatbot.init({
-        chatflowid: 'ec0f5d84-de53-40f7-8562-ae1f515f8093', // or 'support', 'salesbot', etc.
-        apiHost: 'http://localhost:8080',
+        chatflowid: 'c80c9609-c550-4514-8352-212177e272b3', // or 'support', 'salesbot', etc.
+        apiHost: 'https://flowise-cowp.onrender.com',
+        onRequest: (request) => {
+          console.log('HEJ');
+        },
+        // chatflowConfig: Record<string, unknown>;
+        // observersConfig: observersConfigType;
       });
     </script>
   </body>

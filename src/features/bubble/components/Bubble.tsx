@@ -50,7 +50,7 @@ export const Bubble = (props: BubbleProps) => {
 
   const buttonSize = getBubbleButtonSize(props.theme?.button?.size); // Default to 48px if size is not provided
   const buttonBottom = props.theme?.button?.bottom ?? 20;
-  const chatWindowBottom = buttonBottom + buttonSize + 10; // Adjust the offset here for slight shift
+  const chatWindowBottom = buttonBottom + buttonSize + 20; // Adjust the offset here for slight shift
 
   // Add viewport meta tag dynamically
   createEffect(() => {
@@ -100,7 +100,10 @@ export const Bubble = (props: BubbleProps) => {
           'transform-origin': 'bottom right',
           transform: isBotOpened() ? 'scale3d(1, 1, 1)' : 'scale3d(0, 0, 1)',
           'box-shadow': 'rgb(0 0 0 / 16%) 0px 5px 40px',
+
           'background-color': bubbleProps.theme?.chatWindow?.backgroundColor || '#ffffff',
+
+
           'background-image': bubbleProps.theme?.chatWindow?.backgroundImage ? `url(${bubbleProps.theme?.chatWindow?.backgroundImage})` : 'none',
           'background-size': 'cover',
           'background-position': 'center',

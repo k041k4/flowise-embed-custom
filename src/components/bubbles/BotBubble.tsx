@@ -33,7 +33,7 @@ type Props = {
   handleSourceDocumentsClick: (src: any) => void;
 };
 
-const defaultBackgroundColor = '#f7f8ff';
+const defaultBackgroundColor = '#65a30d';
 const defaultTextColor = '#303235';
 const defaultFontSize = 16;
 const defaultFeedbackColor = '#3B81F6';
