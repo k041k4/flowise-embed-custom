@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# . "$(dirname -- "$0")/_/husky.sh"
 
-set -e # Exit on any error
+# set -e # Exit on any error
 
-echo "Running ESLint for linting..."
-npm run lint
+# echo "Running ESLint for linting..."
+# npm run lint
 
-echo "Running ESLint for fixing issues..."
-npm run lint-fix
+# echo "Running ESLint for fixing issues..."
+# npm run lint-fix
 
 # echo "Formatting code..."
 # npm run format

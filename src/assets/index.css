@@ -13,14 +13,14 @@
   --chatbot-host-bubble-bg-color: #f7f8ff;
   --chatbot-host-bubble-color: #303235;
 
-  --chatbot-guest-bubble-bg-color: #3b81f6;
+  --chatbot-guest-bubble-bg-color: #65a30d;
   --chatbot-guest-bubble-color: #ffffff;
 
   --chatbot-input-bg-color: #ffffff;
   --chatbot-input-color: #303235;
   --chatbot-input-placeholder-color: #9095a0;
 
-  --chatbot-header-bg-color: #ffffff;
+  --chatbot-header-bg-color: #65a30d;
   --chatbot-header-color: #303235;
 
   --chatbot-border-radius: 6px;
@@ -216,7 +216,7 @@ textarea {
 
 .chatbot-guest-bubble {
   color: var(--chatbot-guest-bubble-color);
-  background-color: #3b81f6;
+  background-color: #65a30d;
   border-radius: 6px;
 }
 

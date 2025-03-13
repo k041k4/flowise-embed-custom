@@ -8,8 +8,8 @@ type FeedbackContentDialogProps = {
   textColor?: string;
 };
 
-const defaultBackgroundColor = '#ffffff';
-const defaultTextColor = '#303235';
+const defaultBackgroundColor = '#171f29';
+const defaultTextColor = '#65a30d';
 
 const FeedbackContentDialog = (props: FeedbackContentDialogProps) => {
   const [inputValue, setInputValue] = createSignal('');
@@ -40,12 +40,13 @@ const FeedbackContentDialog = (props: FeedbackContentDialogProps) => {
             }}
           >
             <div
-              class="flex items-center justify-between p-5 border-b border-solid border-blueGray-200 rounded-t"
-              style={{
-                border: '1px solid #eeeeee',
-              }}
+              class="flex items-center justify-between p-5 rounded-t"
+              // class="flex items-center justify-between p-5 border-b border-solid border-blueGray-200 rounded-t"
+              // style={{
+              //   border: '1px solid #65a30d',
+              // }}
             >
-              <span class="whitespace-pre-wrap font-semibold max-w-full">Provide additional feedback</span>
+              <span class="whitespace-pre-wrap font-semibold max-w-full text-lime-500">Provide additional feedback</span>
               <button
                 class="p-1 ml-auto bg-transparent border-0 text-black float-right text-xl leading-none font-semibold outline-none focus:outline-none"
                 type="button"
@@ -59,7 +60,7 @@ const FeedbackContentDialog = (props: FeedbackContentDialogProps) => {
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#65a30d"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -75,18 +76,20 @@ const FeedbackContentDialog = (props: FeedbackContentDialogProps) => {
                 onInput={(e) => handleInput(e.currentTarget.value)}
                 ref={inputRef as HTMLTextAreaElement}
                 rows="4"
-                class="block p-2.5 rounded-lg border focus:ring-blue-500 focus:border-blue-500 bg-transparent flex-1 w-full feedback-input disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 font-normal"
+                class="block p-2.5 rounded-lg border  focus:ring-lime-500 focus:border-lime-500 bg-transparent flex-1 w-full feedback-input disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-100 font-normal"
                 style={{
-                  border: '1px solid #eeeeee',
+                  border: '1px solid #65a30d',
                   color: props.textColor ?? defaultTextColor,
+                  "background-color": '#171f29',
                 }}
                 placeholder="What do you think of the response?"
                 value={inputValue()}
               />
             </div>
-            <div class="flex items-center justify-end p-4 border-t border-solid border-blueGray-200 rounded-b">
+            <div class="flex items-center justify-end p-4 rounded-b">
+            {/* <div class="flex items-center justify-end p-4 border-t border-solid border-blueGray-200 rounded-b"> */}
               <button
-                class="bg-emerald-500 text-white active:bg-emerald-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                class="bg-lime-600 text-white active:bg-lime-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={submit}
               >
