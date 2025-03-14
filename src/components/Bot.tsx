@@ -126,6 +126,7 @@ export type observersConfigType = Record<'observeUserInput' | 'observeLoading' |
 export type BotProps = {
   chatflowid: string;
   apiHost?: string;
+  apiKey?: string;
   onRequest?: (request: RequestInit) => Promise<void>;
   chatflowConfig?: Record<string, unknown>;
   welcomeMessage?: string;
@@ -538,7 +539,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
     }
   };
 
-  const fetchResponseFromEventStream = async (chatflowid: string, params: any) => {
+  const fetchResponseFromEventStream = async (chatflowid: string, apiKey: string | undefined, params: any) => {
     const chatId = params.chatId;
     const input = params.question;
     params.streaming = true;
@@ -548,6 +549,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
       body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
       async onopen(response) {
         if (response.ok && response.headers.get('content-type')?.startsWith(EventStreamContentType)) {
@@ -772,7 +774,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
     if (action) body.action = action;
 
     if (isChatFlowAvailableToStream()) {
-      fetchResponseFromEventStream(props.chatflowid, body);
+      fetchResponseFromEventStream(props.chatflowid, props.apiKey, body);
     } else {
       const result = await sendMessageQuery({
         chatflowid: props.chatflowid,
